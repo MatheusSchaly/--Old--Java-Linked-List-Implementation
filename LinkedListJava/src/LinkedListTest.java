@@ -9,22 +9,20 @@ import junit.framework.TestCase;
 public class LinkedListTest extends TestCase {
 	
 	/*
-	 * Tests corner cases of insert method using assertEquals and also
+	 * Tests corner cases using assertEquals and also
 	 * check for exceptions, specifically, illegal argument exception
 	 */
 	
 	public void testInsert() {
 		LinkedList myList = new LinkedList();
-		
 		assertEquals("Check insert, inserting first element in list.", true, myList.insert(5, 1));
 		assertEquals("Check insert, inserting second element in list.", true, myList.insert(10, 2));
 		assertEquals("Check insert, inserting element between two elements.", true, myList.insert(15, 1));
 		assertEquals("Check insert, inserting element with the same data as the previous element.", true, myList.insert(15, 3));
 		assertEquals("Check remove, removing first element in list.", true, myList.remove(1));
-		
 		try {
 			myList.insert(5, 0);
-			fail("Check insert, illegal argument excpetion, position inferior to 1.");
+			fail("Check insert, illegal argument exception, position inferior to 1.");
 			myList.insert(20, myList.getListSize());
 			fail("Check insert, illegal argument exception, position superior to listSize");
 		} catch (IllegalArgumentException e) {
@@ -33,21 +31,18 @@ public class LinkedListTest extends TestCase {
 	}
 	
 	/*
-	 * Tests corner cases of remove method using assertEquals and also
+	 * Tests corner cases assertEquals and also
 	 * check for exceptions, specifically, illegal argument exception
 	 */
 	
 	public void testRemove() {
 		LinkedList myList = new LinkedList();
-		
 		myList.insert(5, 1);
 		myList.insert(10, 2);
 		myList.insert(15, 1);
 		myList.insert(15, 3);
-		
 		assertEquals("Check remove, removing first element in list.", true, myList.remove(1));
 		assertEquals("Check remove, removing last element in list.", true, myList.remove(myList.getListSize()));
-		
 		try {
 			myList.remove(0);
 			fail("Check remove, illegal argument exception, position inferior to 1.");
@@ -58,6 +53,11 @@ public class LinkedListTest extends TestCase {
 		}
 	}
 	
+	/*
+	 * Tests corner cases using assertEquals and also
+	 * check for exceptions, specifically, illegal argument exception
+	 */
+	
 	public void testRetrieveNode() {
 		LinkedList myList = new LinkedList();
 		myList.insert(1, 1);
@@ -66,12 +66,18 @@ public class LinkedListTest extends TestCase {
 		assertEquals("Check retrieveNode, checking first element data in list.", 1, myList.retrieveNode(1).getData());
 		assertEquals("Check retrieveNode, checking second element data in list.", 2, myList.retrieveNode(2).getData());
 		assertEquals("Check retrieveNode, checking last element data in list.", 3, myList.retrieveNode(3).getData());
+		try {
+			myList.retrieveNode(0);
+			fail("Check retrieveNode, illegal argument exception, position inferior to 1.");
+			myList.retrieveNode(myList.getListSize());
+			fail("Check retrieveNode, illegal argument exception, position superior to listSize");
+		} catch (IllegalArgumentException e) {
+			
+		}
 	}
 	
 	/*
-	 * Check if the reverseList is capable of passing through
-	 * every node of the list, but it does not really check
-	 * if those nodes were inverted
+	 * Tests corner cases using assertEquals
 	 */
 	
 	public void testReverseList() {
@@ -89,6 +95,10 @@ public class LinkedListTest extends TestCase {
 	    assertEquals("Check reverseList, reversing a list with 3 elements.", true, myList.reverseList().equals(expectedList));  
 	}
 	
+	/*
+	 * Tests corner cases using assertEquals
+	 */
+	
 	public void testEquals() {
 		LinkedList myList = new LinkedList();
 	    myList.insert(1, 1);
@@ -100,23 +110,20 @@ public class LinkedListTest extends TestCase {
 	}
 	
 	/*
-	 * Tests corner cases of toString method using assertEquals
+	 * Tests corner cases using assertEquals
 	 */
 	
 	public void testToString() {
 		LinkedList myList = new LinkedList();
-		
 		myList.insert(5, 1);
 		myList.insert(10, 2);
 		myList.insert(15, 1);
 		myList.insert(15, 3);
 		assertEquals("Check toString, printing a list with 4 elements.", "15 5 15 10 \nSize: 4\n", myList.toString());
-		
 		myList.remove(1);
 		myList.remove(1);
 		myList.remove(1);
 		assertEquals("Check toString, printing a list with 1 element.", "10 \nSize: 1\n", myList.toString());
-		
 		myList.remove(1);
 		assertEquals("Check toString, printing a empty list.", "\nSize: 0\n", myList.toString());
 	}

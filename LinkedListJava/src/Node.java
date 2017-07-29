@@ -8,8 +8,6 @@ public class Node {
 	
 	int data;
 	Node next;
-	
-	// Four different types of constructors, as Java does not allow default parameters
 
 	public Node() {
 		data = 0;
