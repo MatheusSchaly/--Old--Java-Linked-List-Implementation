@@ -1,7 +1,7 @@
 /**
  * @author Matheus Henrique Schaly
  * @date Jul 23, 2017
- * @description Creates the LinkedList object, exhaustively commented
+ * @description Creates the LinkedList object
  */
 
 public class LinkedList { 
@@ -33,7 +33,7 @@ public class LinkedList {
 	 */
 	
 	public boolean insert(int data, int position) {
-		if (position < 1 || position > listSize + 2) {
+		if (position < 1 || position > listSize + 1) {
 			throw new IllegalArgumentException("insert: invalid parameter, position must be between 1 and listSize.");
 		}
 		listSize++;

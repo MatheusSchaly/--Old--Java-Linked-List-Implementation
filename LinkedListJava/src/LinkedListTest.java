@@ -21,8 +21,10 @@ public class LinkedListTest extends TestCase {
 		assertEquals("Check insert, inserting element with the same data as the previous element.", true, myList.insert(15, 3));
 		assertEquals("Check remove, removing first element in list.", true, myList.remove(1));
 		try {
+			System.out.println("OIE");
 			myList.insert(5, 0);
 			fail("Check insert, illegal argument exception, position inferior to 1.");
+			System.out.println(myList.getListSize()); // APARENTEMENTE N ESTA CHEGANDO AQUI, ESTA PARANDO EM CIMA
 			myList.insert(20, myList.getListSize());
 			fail("Check insert, illegal argument exception, position superior to listSize");
 		} catch (IllegalArgumentException e) {
