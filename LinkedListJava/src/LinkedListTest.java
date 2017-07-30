@@ -21,12 +21,14 @@ public class LinkedListTest extends TestCase {
 		assertEquals("Check insert, inserting element with the same data as the previous element.", true, myList.insert(15, 3));
 		assertEquals("Check remove, removing first element in list.", true, myList.remove(1));
 		try {
-			System.out.println("OIE");
 			myList.insert(5, 0);
-			fail("Check insert, illegal argument exception, position inferior to 1.");
-			System.out.println(myList.getListSize()); // APARENTEMENTE N ESTA CHEGANDO AQUI, ESTA PARANDO EM CIMA
-			myList.insert(20, myList.getListSize());
-			fail("Check insert, illegal argument exception, position superior to listSize");
+			fail("Check insert, illegal argument exception, position has to be bigger than 0.");
+		} catch (IllegalArgumentException e) {
+			
+		}
+		try {
+			myList.insert(20, myList.getListSize() + 2);
+			fail("Check insert, illegal argument exception, position has to be smaller than listSize plus 2.");
 		} catch (IllegalArgumentException e) {
 			
 		}
@@ -47,9 +49,13 @@ public class LinkedListTest extends TestCase {
 		assertEquals("Check remove, removing last element in list.", true, myList.remove(myList.getListSize()));
 		try {
 			myList.remove(0);
-			fail("Check remove, illegal argument exception, position inferior to 1.");
-			myList.remove(myList.getListSize());
-			fail("Check remove, illegal argument exception, position superior to listSize");
+			fail("Check remove, illegal argument exception, position has to be bigger than 1.");
+		} catch (IllegalArgumentException e) {
+			
+		}
+		try {
+			myList.remove(myList.getListSize() + 1);
+			fail("Check remove, illegal argument exception, position has to be smaller than listSize plus 1.");
 		} catch (IllegalArgumentException e) {
 			
 		}
@@ -70,9 +76,13 @@ public class LinkedListTest extends TestCase {
 		assertEquals("Check retrieveNode, checking last element data in list.", 3, myList.retrieveNode(3).getData());
 		try {
 			myList.retrieveNode(0);
-			fail("Check retrieveNode, illegal argument exception, position inferior to 1.");
-			myList.retrieveNode(myList.getListSize());
-			fail("Check retrieveNode, illegal argument exception, position superior to listSize");
+			fail("Check retrieveNode, illegal argument exception, position has to be bigger than 1.");
+		} catch (IllegalArgumentException e) {
+			
+		}
+		try {
+			myList.retrieveNode(myList.getListSize() + 1);
+			fail("Check retrieveNode, illegal argument exception, position has to be smaller than listSize plus 1.");
 		} catch (IllegalArgumentException e) {
 			
 		}
@@ -87,14 +97,14 @@ public class LinkedListTest extends TestCase {
 	    myList.insert(1, 1);
 	    LinkedList singleElementList = new LinkedList();
 	    singleElementList.insert(1, 1);
-	    assertEquals("Check reverseList, reversing a list with 1 element.", true, myList.reverseList().equals(singleElementList));  
+	    assertEquals("Check reverseList, could not reverse a list with 1 element.", true, myList.reverseList().equals(singleElementList));  
 	    LinkedList expectedList = new LinkedList();
 	    myList.insert(2, 2);
 	    myList.insert(3, 3);
 	    expectedList.insert(3, 1);
 	    expectedList.insert(2, 2);
 	    expectedList.insert(1, 3);
-	    assertEquals("Check reverseList, reversing a list with 3 elements.", true, myList.reverseList().equals(expectedList));  
+	    assertEquals("Check reverseList, could not reverse a list with 3 elements.", true, myList.reverseList().equals(expectedList));  
 	}
 	
 	/*
@@ -104,11 +114,11 @@ public class LinkedListTest extends TestCase {
 	public void testEquals() {
 		LinkedList myList = new LinkedList();
 	    myList.insert(1, 1);
-		assertEquals("Check reverseList, comparing to the same list.", true, myList.reverseList().equals(myList));
+		assertEquals("Check reverseList, could not compare to the same list.", true, myList.reverseList().equals(myList));
 		LinkedList myList2 = new LinkedList();
 		myList2.insert(1, 1);
 		myList2.insert(2, 2);
-		assertEquals("Check reverseList, different size list.", false, myList.reverseList().equals(myList2));
+		assertEquals("Check reverseList, could not compare different size lists.", false, myList.reverseList().equals(myList2));
 	}
 	
 	/*
@@ -121,13 +131,13 @@ public class LinkedListTest extends TestCase {
 		myList.insert(10, 2);
 		myList.insert(15, 1);
 		myList.insert(15, 3);
-		assertEquals("Check toString, printing a list with 4 elements.", "15 5 15 10 \nSize: 4\n", myList.toString());
+		assertEquals("Check toString, could not print a list with 4 elements.", "15 5 15 10 \nSize: 4\n", myList.toString());
 		myList.remove(1);
 		myList.remove(1);
 		myList.remove(1);
-		assertEquals("Check toString, printing a list with 1 element.", "10 \nSize: 1\n", myList.toString());
+		assertEquals("Check toString, could not print a list with 1 element.", "10 \nSize: 1\n", myList.toString());
 		myList.remove(1);
-		assertEquals("Check toString, printing a empty list.", "\nSize: 0\n", myList.toString());
+		assertEquals("Check toString, could not print a empty list.", "\nSize: 0\n", myList.toString());
 	}
 	
 }

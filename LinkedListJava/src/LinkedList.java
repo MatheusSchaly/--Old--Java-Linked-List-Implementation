@@ -60,7 +60,7 @@ public class LinkedList {
 	 */
 	
 	public boolean remove(int position) {
-		if (position < 1 || position > listSize + 2) {
+		if (position < 1 || position > listSize) {
 			throw new IllegalArgumentException("remove: invalid parameter, position must be between 1 and listSize.");
 		}
 		listSize--;
@@ -85,7 +85,7 @@ public class LinkedList {
 	 */
 	
 	public Node retrieveNode(int position) {
-		if (position < 1 || position > listSize + 2) {
+		if (position < 1 || position > listSize) {
 			throw new IllegalArgumentException("retrieveNode: invalid parameter, position must be between 1 and listSize.");
 		}
 		Node temp = head;
