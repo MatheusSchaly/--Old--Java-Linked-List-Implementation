@@ -14,7 +14,6 @@ public class LinkedList {
 		listSize = 0;
 	}
 	
-	
 	public Node getHead() { 
 		return head;
 	}
@@ -78,7 +77,7 @@ public class LinkedList {
 	}
 	
 	/*
-	 * Retrieve a node from the list (does not remove it)
+	 * Retrieves a node from the list (does not remove it)
 	 * position: the position (not index) of the node to be retrieved
 	 * 
 	 * return: the selected node
@@ -133,7 +132,7 @@ public class LinkedList {
 	}
 	
 	/*
-	 * Check if 2 LinkedLists are equal
+	 * Checks if 2 LinkedLists are equal
 	 * myList: the list to be checked
 	 * 
 	 * returns: a boolean representing if myList is equal another

@@ -9,9 +9,10 @@ import java.util.Scanner;
 public class main {
 	public static void main(String[] args) {
 		Scanner s = new Scanner(System.in);
-		int menuOption; 
 		LinkedList myList = new LinkedList();
-		
+		int menuOption, data, position; 
+		char option;
+		boolean valid;
 		do {
 			do {
 				System.out.println("Choose:");
@@ -19,15 +20,11 @@ public class main {
 				System.out.println("1 - Insert data");
 				System.out.println("2 - Remove data");			
 				System.out.println("3 - Reverse list");
-				System.out.println("4 - Print list");
 				menuOption = s.nextInt();
-			} while (menuOption < 0 || menuOption > 4);
-			
+			} while (menuOption < 0 || menuOption > 3);
+			valid = false;
 			switch (menuOption) {
 			case 1:
-				int data, position;
-				char option;
-				boolean valid;
 				do {
 					System.out.println("Enter the data:");
 					data = s.nextInt();		
@@ -41,17 +38,37 @@ public class main {
 							valid = false;
 						}
 					} while (valid == false);
+					System.out.println("Current list: " + myList);
 					do {
 						System.out.println("Add more nodes (Y/n)");
 						option = s.next().charAt(0);
 						option = Character.toLowerCase(option);
 					} while (option != 'y' && option != 'n');
 				} while (option != 'n');
+				break;
+			case 2:
+				do {
+					do {
+						valid = true;
+						try {
+							System.out.println("Enter the positon:");
+							position = s.nextInt();
+							myList.remove(position);
+						} catch (IllegalArgumentException e) {
+							valid = false;
+						}
+					} while (valid == false);
+					System.out.println("Current list: " + myList);
+					do {
+						System.out.println("Remove more nodes (Y/n)");
+						option = s.next().charAt(0);
+						option = Character.toLowerCase(option);
+					} while (option != 'y' && option != 'n');
+				} while (option != 'n');
+			case 3:
+				myList.reverseList();
+				System.out.println("Current list: " + myList);
 			}
-//			case 2:
-//				int position;
-//				char option;
-//				boolean valid
 		} while (menuOption != 0);
 		s.close();
 	}
