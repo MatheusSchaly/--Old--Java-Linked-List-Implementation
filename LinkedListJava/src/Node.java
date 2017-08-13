@@ -1,7 +1,7 @@
 /**
  * @author Matheus Henrique Schaly
  * @date Jul 23, 2017
- * @description Creates the Node object
+ * @description Creates the Node object.
  */
 
 public class Node {

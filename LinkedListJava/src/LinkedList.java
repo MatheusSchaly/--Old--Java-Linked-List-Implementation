@@ -1,7 +1,7 @@
 /**
  * @author Matheus Henrique Schaly
  * @date Jul 23, 2017
- * @description Creates the LinkedList object
+ * @description Creates the LinkedList object.
  */
 
 public class LinkedList { 
@@ -44,7 +44,7 @@ public class LinkedList {
 	
 	public boolean insert(int data, int position) {
 		if (position < 1 || position > getListSize() + 1) {
-			throw new IllegalArgumentException("insert: invalid parameter, position must be between 1 and listSize.");
+			throw new IndexOutOfBoundsException("insert: invalid parameter, position must be between 1 and listSize.");
 		}
 		increaseListSize();
 		Node temp1 = new Node(data);
@@ -71,7 +71,7 @@ public class LinkedList {
 	
 	public boolean remove(int position) {
 		if (position < 1 || position > getListSize()) {
-			throw new IllegalArgumentException("remove: invalid parameter, position must be between 1 and listSize.");
+			throw new IndexOutOfBoundsException("remove: invalid parameter, position must be between 1 and listSize.");
 		}
 		decreaseListSize();
 		Node prev = null, temp = getHead();
@@ -96,7 +96,7 @@ public class LinkedList {
 	
 	public Node retrieveNode(int position) {
 		if (position < 1 || position > getListSize()) {
-			throw new IllegalArgumentException("retrieveNode: invalid parameter, position must be between 1 and listSize.");
+			throw new IndexOutOfBoundsException("retrieveNode: invalid parameter, position must be between 1 and listSize.");
 		}
 		Node temp = getHead();
 		for (int i = 1; i < position; i++) {

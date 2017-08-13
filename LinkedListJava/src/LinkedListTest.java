@@ -1,7 +1,7 @@
 /**
  * @author Matheus Henrique Schaly
  * @date Jul 24, 2017
- * @description Tests the LinkedList object
+ * @description Tests the LinkedList object.
  */
 
 import junit.framework.TestCase;
@@ -23,13 +23,13 @@ public class LinkedListTest extends TestCase {
 		try {
 			myList.insert(5, 0);
 			fail("Check insert, illegal argument exception, position has to be bigger than 0.");
-		} catch (IllegalArgumentException e) {
+		} catch (IndexOutOfBoundsException e) {
 			
 		}
 		try {
 			myList.insert(20, myList.getListSize() + 2);
 			fail("Check insert, illegal argument exception, position has to be smaller than listSize plus 2.");
-		} catch (IllegalArgumentException e) {
+		} catch (IndexOutOfBoundsException e) {
 			
 		}
 	}
@@ -50,13 +50,13 @@ public class LinkedListTest extends TestCase {
 		try {
 			myList.remove(0);
 			fail("Check remove, illegal argument exception, position has to be bigger than 1.");
-		} catch (IllegalArgumentException e) {
+		} catch (IndexOutOfBoundsException e) {
 			
 		}
 		try {
 			myList.remove(myList.getListSize() + 1);
 			fail("Check remove, illegal argument exception, position has to be smaller than listSize plus 1.");
-		} catch (IllegalArgumentException e) {
+		} catch (IndexOutOfBoundsException e) {
 			
 		}
 	}
@@ -77,13 +77,13 @@ public class LinkedListTest extends TestCase {
 		try {
 			myList.retrieveNode(0);
 			fail("Check retrieveNode, illegal argument exception, position has to be bigger than 1.");
-		} catch (IllegalArgumentException e) {
+		} catch (IndexOutOfBoundsException e) {
 			
 		}
 		try {
 			myList.retrieveNode(myList.getListSize() + 1);
 			fail("Check retrieveNode, illegal argument exception, position has to be smaller than listSize plus 1.");
-		} catch (IllegalArgumentException e) {
+		} catch (IndexOutOfBoundsException e) {
 			
 		}
 	}
