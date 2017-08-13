@@ -6,8 +6,8 @@
 
 public class LinkedList { 
 
-	Node head;
-	int listSize;
+	private Node head;
+	private int listSize;
 	
 	public LinkedList() { 
 		head = null;
@@ -18,9 +18,20 @@ public class LinkedList {
 		return head;
 	}
 	
+	public void setHead(Node head) {
+		this.head = head;
+	}
 	
 	public int getListSize() { 
 		return listSize;
+	}
+	
+	public void increaseListSize() {
+		listSize++;
+	}
+	
+	public void decreaseListSize() {
+		listSize--;
 	}
 	
 	/*
@@ -32,17 +43,17 @@ public class LinkedList {
 	 */
 	
 	public boolean insert(int data, int position) {
-		if (position < 1 || position > listSize + 1) {
+		if (position < 1 || position > getListSize() + 1) {
 			throw new IllegalArgumentException("insert: invalid parameter, position must be between 1 and listSize.");
 		}
-		listSize++;
+		increaseListSize();
 		Node temp1 = new Node(data);
 		if (position == 1) {
-			temp1.setNext(head);
-			head = temp1;
+			temp1.setNext(getHead());
+			setHead(temp1);
 			return true;
 		}
-		Node temp2 = head;
+		Node temp2 = getHead();
 		for (int i = 2; i < position; i++) {
 			temp2 = temp2.getNext();
 		}
@@ -59,13 +70,13 @@ public class LinkedList {
 	 */
 	
 	public boolean remove(int position) {
-		if (position < 1 || position > listSize) {
+		if (position < 1 || position > getListSize()) {
 			throw new IllegalArgumentException("remove: invalid parameter, position must be between 1 and listSize.");
 		}
-		listSize--;
-		Node prev = null, temp = head;
+		decreaseListSize();
+		Node prev = null, temp = getHead();
 		if (position == 1) {
-			head = temp.getNext();
+			setHead(temp.getNext());
 			return true;
 		}
 		for (int i = 1; i < position; i++) {
@@ -84,10 +95,10 @@ public class LinkedList {
 	 */
 	
 	public Node retrieveNode(int position) {
-		if (position < 1 || position > listSize) {
+		if (position < 1 || position > getListSize()) {
 			throw new IllegalArgumentException("retrieveNode: invalid parameter, position must be between 1 and listSize.");
 		}
-		Node temp = head;
+		Node temp = getHead();
 		for (int i = 1; i < position; i++) {
 			temp = temp.getNext();
 		}
@@ -104,14 +115,14 @@ public class LinkedList {
 	 */
 	
 	public LinkedList reverseList() {
-		Node prev = null, current = head, next;
+		Node prev = null, current = getHead(), next;
 		while (current != null) {
 			next = current.getNext();
 			current.setNext(prev);
 			prev = current;
 			current = next;
 		}
-		head = prev;
+		setHead(prev);
 		return this;
 	}
 	
@@ -122,7 +133,7 @@ public class LinkedList {
 	 */
 	
 	public String toString() {
-		Node temp = head;
+		Node temp = getHead();
 		StringBuilder myList = new StringBuilder();
 		while (temp != null) {
 			myList.append(temp.getData() + " ");
@@ -142,11 +153,11 @@ public class LinkedList {
 		if (myList == this) {
 			return true;
 		}
-		if (!(myList.getListSize() == this.getListSize())) {
+		if (!(myList.getListSize() == getListSize())) {
 			return false;
 		}
-		for (int i = 1; i != this.getListSize(); i++) {
-			if (myList.retrieveNode(i).getData() != this.retrieveNode(i).getData()) {
+		for (int i = 1; i != getListSize(); i++) {
+			if (myList.retrieveNode(i).getData() != retrieveNode(i).getData()) {
 				return false;
 			}
 		}
