@@ -1,16 +1,16 @@
 /**
  * @author Matheus Henrique Schaly
  * @date Jul 24, 2017
- * @description Tests the LinkedList object.
+ * @description Tests a LinkedList object.
  */
 
 import junit.framework.TestCase;
 
 public class LinkedListTest extends TestCase {
 	
-	/*
-	 * Tests corner cases using assertEquals and also
-	 * check for exceptions, specifically, illegal argument exception
+	/**
+	 * Tests insert corner cases using assertEquals and also
+	 * checks for index out of bounds exception.
 	 */
 	
 	public void testInsert() {
@@ -34,9 +34,9 @@ public class LinkedListTest extends TestCase {
 		}
 	}
 	
-	/*
-	 * Tests corner cases assertEquals and also
-	 * check for exceptions, specifically, illegal argument exception
+	/**
+	 * Tests remove corner cases assertEquals and also
+	 * checks for index out of bounds exception.
 	 */
 	
 	public void testRemove() {
@@ -61,9 +61,9 @@ public class LinkedListTest extends TestCase {
 		}
 	}
 	
-	/*
-	 * Tests corner cases using assertEquals and also
-	 * check for exceptions, specifically, illegal argument exception
+	/**
+	 * Tests retrieveNode corner cases using assertEquals and also
+	 * checks for index out of bounds exception.
 	 */
 	
 	public void testRetrieveNode() {
@@ -88,8 +88,8 @@ public class LinkedListTest extends TestCase {
 		}
 	}
 	
-	/*
-	 * Tests corner cases using assertEquals
+	/**
+	 * Tests reverseList corner cases using assertEquals.
 	 */
 	
 	public void testReverseList() {
@@ -107,8 +107,8 @@ public class LinkedListTest extends TestCase {
 	    assertEquals("Check reverseList, could not reverse a list with 3 elements.", true, myList.reverseList().equals(expectedList));  
 	}
 	
-	/*
-	 * Tests corner cases using assertEquals
+	/**
+	 * Tests testEquals corner cases using assertEquals.
 	 */
 	
 	public void testEquals() {
@@ -121,8 +121,8 @@ public class LinkedListTest extends TestCase {
 		assertEquals("Check reverseList, could not compare different size lists.", false, myList.reverseList().equals(myList2));
 	}
 	
-	/*
-	 * Tests corner cases using assertEquals
+	/**
+	 * Tests toString corner cases using assertEquals.
 	 */
 	
 	public void testToString() {

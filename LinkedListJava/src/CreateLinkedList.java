@@ -3,19 +3,26 @@ import java.util.Scanner;
 /**
  * @author Matheus Henrique Schaly
  * @date Aug 13, 2017
- * @description Creates a LinkedList object.
+ * @description Runs a LinkedList object.
  */
 
 public class CreateLinkedList {
 	
 	private LinkedList list = new LinkedList();
+	private Scanner s = new Scanner(System.in);
 	
 	public LinkedList getList() {
 		return list;
 	}
 	
+	/**
+	 * Receive user's input that decides what with 
+	 * the list (insert, remove, reverse, or exit).
+	 * 
+	 * @return user's choice
+	 */
+	
 	public int choiceMenu() {
-		Scanner s = new Scanner(System.in);
 		int menuOption;
 		do {
 			System.out.println("Choose:");
@@ -25,12 +32,14 @@ public class CreateLinkedList {
 			System.out.println("3 - Reverse list");
 			menuOption = s.nextInt();
 		} while (menuOption < 0 || menuOption > 3);
-		s.close();
 		return menuOption;
 	}
 	
+	/**
+	 * Inserts as many data as needed to a LinkedList object.
+	 */
+	
 	public void insertData() {
-		Scanner s = new Scanner(System.in);
 		int data, position;
 		char option;
 		boolean valid = false;
@@ -54,11 +63,13 @@ public class CreateLinkedList {
 				option = Character.toLowerCase(option);
 			} while (option != 'y' && option != 'n');
 		} while (option != 'n');
-		s.close();
 	}
 	
+	/**
+	 * Removes as many data as needed from a LinkedList object.
+	 */
+	
 	public void removeData() {
-		Scanner s = new Scanner(System.in);
 		int position;
 		char option;
 		boolean valid = false;
@@ -80,16 +91,22 @@ public class CreateLinkedList {
 				option = Character.toLowerCase(option);
 			} while (option != 'y' && option != 'n');
 		} while (option != 'n');
-		s.close();
 	}
+	
+	/**
+	 * Inverts a LinkedList object.
+	 */
 	
 	public void invert() {
 		getList().reverseList();
 		System.out.println("Current list: " + getList());
 	}
 	
+	/**
+	 * Runs a LinkedList object. 
+	 */
+	
 	public void run() {
-		Scanner s = new Scanner(System.in);
 		int menuOption;
 		do {
 			menuOption = choiceMenu();

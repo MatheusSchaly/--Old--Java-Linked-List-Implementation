@@ -1,7 +1,7 @@
 /**
  * @author Matheus Henrique Schaly
  * @date Jul 23, 2017
- * @description Creates the LinkedList object.
+ * @description Creates a LinkedList object.
  */
 
 public class LinkedList { 
@@ -26,20 +26,28 @@ public class LinkedList {
 		return listSize;
 	}
 	
+	/**
+	 * Increases list by 1.
+	 */
+	
 	public void increaseListSize() {
 		listSize++;
 	}
+	
+	/**
+	 * Decreases list by 1.
+	 */
 	
 	public void decreaseListSize() {
 		listSize--;
 	}
 	
-	/*
-	 * Inserts a node to the list
-	 * data: the data to be contained inside the new node
-	 * position: the position (not index) which the new node will be created
+	/**
+	 * Inserts a node to the list.
+	 * @param data The data to be contained inside the new node
+	 * @param position The position (not index) which the new node will be created
 	 * 
-	 * returns: a boolean representing if a node has been added
+	 * @return a boolean representing if a node has been added
 	 */
 	
 	public boolean insert(int data, int position) {
@@ -62,11 +70,11 @@ public class LinkedList {
 		return true;
 	}
 	
-	/*
-	 * Removes a node from the list
-	 * position: the position (not index) of the node to be excluded
+	/**
+	 * Removes a node from the list.
+	 * @param position The position (not index) of the node to be excluded
 	 * 
-	 * returns: a boolean representing if a node has been removed
+	 * @returns a boolean representing if a node has been removed
 	 */
 	
 	public boolean remove(int position) {
@@ -87,11 +95,11 @@ public class LinkedList {
 		return true;
 	}
 	
-	/*
-	 * Retrieves a node from the list (does not remove it)
-	 * position: the position (not index) of the node to be retrieved
+	/**
+	 * Retrieves a node from the list (does not remove it).
+	 * @param position The position (not index) of the node to be retrieved
 	 * 
-	 * return: the selected node
+	 * @return the selected node
 	 */
 	
 	public Node retrieveNode(int position) {
@@ -105,13 +113,13 @@ public class LinkedList {
 		return temp;
 	}
 	
-	/*
+	/**
 	 * Reverses the order of the list, i.e.:
 	 * the element at position "listSize" will become the
 	 * element at position 1, and vice-versa. Head will also change,
-	 * it will point to the new first element (as it should)
+	 * it will point to the new first element (as it should).
 	 * 
-	 * returns: a LinkedList used specially for the "test" class
+	 * @return a LinkedList used specially for the "test" class
 	 */
 	
 	public LinkedList reverseList() {
@@ -126,10 +134,10 @@ public class LinkedList {
 		return this;
 	}
 	
-	/*
+	/**
 	 * Prints the data contained inside each node of the list, and also its size (number of nodes).
 	 * 
-	 * returns: the data contained inside each node of the list, and also its size (number of nodes), in form of a string
+	 * @return the data contained inside each node of the list, and also its size (number of nodes), in form of a string
 	 */
 	
 	public String toString() {
@@ -142,11 +150,11 @@ public class LinkedList {
 		return myList + "\nSize: " + listSize + "\n";
 	}
 	
-	/*
-	 * Checks if 2 LinkedLists are equal
-	 * myList: the list to be checked
+	/**
+	 * Checks if 2 LinkedLists are equal.
+	 * @param myList The list to be checked
 	 * 
-	 * returns: a boolean representing if myList is equal another
+	 * @return a boolean representing if myList is equal another
 	 */
 	
 	public boolean equals(LinkedList myList) {

@@ -1,7 +1,7 @@
 /**
  * @author Matheus Henrique Schaly
  * @date Jul 23, 2017
- * @description Creates the Node object.
+ * @description Creates a Node object.
  */
 
 public class Node {
@@ -9,11 +9,6 @@ public class Node {
 	private int data;
 	private Node next;
 
-	public Node() {
-		setData(0);
-		setNext(null);
-	}
-	
 	public Node(int data) {
 		setData(data);
 		setNext(null);
