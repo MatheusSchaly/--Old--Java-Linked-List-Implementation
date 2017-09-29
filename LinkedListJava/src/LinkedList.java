@@ -18,8 +18,8 @@ public class LinkedList {
 		return head;
 	}
 	
-	public void setHead(Node head) {
-		this.head = head;
+	public void setHead(Node node) {
+		head = node;
 	}
 	
 	public int getListSize() { 

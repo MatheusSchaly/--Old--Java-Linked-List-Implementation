@@ -19,7 +19,6 @@ public class LinkedListTest extends TestCase {
 		assertEquals("Check insert, inserting second element in list.", true, myList.insert(10, 2));
 		assertEquals("Check insert, inserting element between two elements.", true, myList.insert(15, 1));
 		assertEquals("Check insert, inserting element with the same data as the previous element.", true, myList.insert(15, 3));
-		assertEquals("Check remove, removing first element in list.", true, myList.remove(1));
 		try {
 			myList.insert(5, 0);
 			fail("Check insert, illegal argument exception, position has to be bigger than 0.");
@@ -27,7 +26,7 @@ public class LinkedListTest extends TestCase {
 			
 		}
 		try {
-			myList.insert(20, myList.getListSize() + 2);
+			myList.insert(20, myList.getListSize() + 1);
 			fail("Check insert, illegal argument exception, position has to be smaller than listSize plus 2.");
 		} catch (IndexOutOfBoundsException e) {
 			
